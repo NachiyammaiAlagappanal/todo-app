@@ -11,7 +11,6 @@ const App = () => {
 		<div className="App">
 			<div>Count: { context.state.count }</div>
 			<div>{ SimpleButton() }</div>
-			<div>Refresh ID: { context.state.refreshID }</div>
 		</div>
 	);
 };
