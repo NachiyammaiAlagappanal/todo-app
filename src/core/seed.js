@@ -1,7 +1,8 @@
-import config from './config';
+// import config from './config';
 
 const seed = {
-	count: config.countStart,
+	input: '',
+	todos: [],
 };
 
 export default seed;
