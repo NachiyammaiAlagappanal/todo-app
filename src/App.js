@@ -16,7 +16,6 @@ const App = () => {
 			<div>{ TodoInput() }</div>
 			<div>{ AddTodo() }</div>
 			<div>{ TodoList() }</div>
-			<div>{ context.state.input }</div>
 		</div>
 	);
 };

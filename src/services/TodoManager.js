@@ -6,12 +6,22 @@ const { idLength } = config;
 const getTodo = (text) => ({
 	id: rndString(idLength),
 	text: text,
+	completed: false,
 });
 
 const addTodo = (todos, text) => todos.concat(getTodo(text));
 
+const toggleTodo = (todos, data) => todos.map((todo) => (todos.id !== data.id
+	? todo
+	: {
+		...todo,
+		completed: !data.completed,
+	}
+));
+
 const TodoManager = {
 	addTodo,
+	toggleTodo,
 };
 
 export default TodoManager;
