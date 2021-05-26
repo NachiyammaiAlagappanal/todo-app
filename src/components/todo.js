@@ -15,6 +15,7 @@ const activeStyle = {
 	color: 'red',
 };
 
+// eslint-disable-next-line max-lines-per-function
 const Todo = (todo) => {
 	const { id, text, completed } = todo;
 	// eslint-disable-next-line padding-line-between-statements
@@ -33,6 +34,10 @@ const Todo = (todo) => {
 				/>
 			</span>
 			<span>{ text }</span>
+			<span>
+				<button onClick={ () => context.actions.removeTodo(todo) }> X
+				</button>
+			</span>
 		</div>
 	);
 };
