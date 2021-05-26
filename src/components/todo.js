@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { React } from 'react';
 import context from '../core/context';
 
@@ -6,16 +7,18 @@ const sharedStyle = {
 };
 const completedStyle = {
 	...sharedStyle,
-	color: 'red',
+	color: 'blue',
 };
 
 const activeStyle = {
 	...sharedStyle,
-	color: 'black',
+	color: 'red',
 };
 
 const Todo = (todo) => {
 	const { id, text, completed } = todo;
+	// eslint-disable-next-line padding-line-between-statements
+	console.log(todo);
 
 	const style = completed ? completedStyle : activeStyle;
 
@@ -24,8 +27,9 @@ const Todo = (todo) => {
 			<span>
 				<input
 					type="checkbox"
-					defaultChecked={ completed }
-					onChange={ () => context.actions.toggleTodo(todo) }
+					// eslint-disable-next-line react/destructuring-assignment
+					defaultChecked={ todo.completed }
+					onChange={ () => { context.actions.toggleTodo(todo); } }
 				/>
 			</span>
 			<span>{ text }</span>
