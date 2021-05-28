@@ -29,7 +29,7 @@ const Todo = (todo) => {
 				<input
 					type="checkbox"
 					// eslint-disable-next-line react/destructuring-assignment
-					defaultChecked={ todo.completed }
+					checked={ todo.completed }
 					onChange={ () => { context.actions.toggleTodo(todo); } }
 				/>
 			</span>

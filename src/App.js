@@ -5,6 +5,7 @@ import SampleService from './services/sample';
 import TodoInput from './components/TodoInput';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
+import ToggleAllButton from './components/toggleAllButton';
 
 const App = () => {
 	useEffect(SampleService.sayHai, []);
@@ -13,7 +14,8 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<div>{ TodoInput() }</div>
+			<div>{ ToggleAllButton() }
+				  { TodoInput() }</div>
 			<div>{ AddTodo() }</div>
 			<div>{ TodoList() }</div>
 		</div>

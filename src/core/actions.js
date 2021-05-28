@@ -8,15 +8,19 @@ const addTodo = ({ state }) => ({
 const toggleTodo = ({ state }, todo) => ({
 	todos: TodoManager.toggleTodo(state.todos, todo),
 });
+const removeTodo = ({ state }, todo) => ({
+	todos: TodoManager.removeTodo(state.todos, todo),
+});
 
-const removeTodo = (context, todo) => ({
-	todos: TodoManager.removeTodo(context.state.todos, todo),
+const toggleTodos = (context, isComplete) => ({
+	todos: TodoManager.toggleTodos(context.state.todos, isComplete),
 });
 const actions = {
 	updateInputValue,
 	addTodo,
 	toggleTodo,
 	removeTodo,
+	toggleTodos,
 };
 
 export default actions;

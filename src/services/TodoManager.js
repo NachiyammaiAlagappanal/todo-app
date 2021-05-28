@@ -21,10 +21,22 @@ const toggleTodo = (todos, data) => todos.map((todo) => (todo.id !== data.id
 const removeTodo = (todos, todo) =>
 	todos.filter((selected) => selected.id !== todo.id);
 
+const toggleTodos = (todos, isComplete) => todos.map((todo) => ({
+	...todo,
+	completed: isComplete,
+}));
+const getActiveCount = (todos) =>
+	todos.filter((todo) => !todo.completed).length;
+
+const getAllCount = (todos) => todos.length;
+
 const TodoManager = {
 	addTodo,
 	toggleTodo,
 	removeTodo,
+	toggleTodos,
+	getActiveCount,
+	getAllCount,
 };
 
 export default TodoManager;
