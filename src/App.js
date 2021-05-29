@@ -7,7 +7,7 @@ import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import ToggleAllButton from './components/toggleAllButton';
 import clearButton from './components/clearButton';
-
+import FilterBar from './components/filterBar.js';
 const App = () => {
 	useEffect(SampleService.sayHai, []);
 	// eslint-disable-next-line no-console
@@ -20,6 +20,7 @@ const App = () => {
 			<div>{ AddTodo() }</div>
 			<div>{ TodoList() }</div>
 			<div>{ clearButton() }</div>
+			<div>{ FilterBar() }</div>
 		</div>
 	);
 };
