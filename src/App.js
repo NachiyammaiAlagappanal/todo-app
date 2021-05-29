@@ -6,6 +6,7 @@ import TodoInput from './components/TodoInput';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import ToggleAllButton from './components/toggleAllButton';
+import clearButton from './components/clearButton';
 
 const App = () => {
 	useEffect(SampleService.sayHai, []);
@@ -18,6 +19,7 @@ const App = () => {
 				  { TodoInput() }</div>
 			<div>{ AddTodo() }</div>
 			<div>{ TodoList() }</div>
+			<div>{ clearButton() }</div>
 		</div>
 	);
 };
