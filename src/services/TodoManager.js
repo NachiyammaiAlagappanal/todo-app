@@ -3,6 +3,12 @@ import config from '../core/config';
 
 const { idLength } = config;
 
+const filters = {
+	all: () => true,
+	active: (todo) => !todo.completed,
+	completed: (todo) => todo.completed,
+};
+
 const getTodo = (text) => ({
 	id: rndString(idLength),
 	text: text,
@@ -26,19 +32,16 @@ const toggleTodos = (todos, isComplete) => todos.map((todo) => ({
 	completed: isComplete,
 }));
 const getActiveCount = (todos) =>
-	todos.filter((todo) => !todo.completed).length;
+	todos.filter(filters.active).length;
 
 const getAllCount = (todos) => todos.length;
 
-const clearCompleted = (todos) => todos.filter((todo) => !todo.completed);
+const clearCompleted = (todos) => todos.filter(filters.active);
 
-const getClearCount = (todos) => todos.filter((todo) => todo.completed).length;
+const getClearCount = (todos) => todos.filter(filters.completed).length;
 
-const filters = {
-	all: () => true,
-	active: (todo) => !todo.completed,
-	completed: (todo) => todo.completed,
-};
+const getTodoCount = (todos) => todos.length;
+
 const filterTodo = (todos, filter) => todos.filter(filters[filter]);
 
 const TodoManager = {
@@ -51,6 +54,7 @@ const TodoManager = {
 	clearCompleted,
 	getClearCount,
 	filterTodo,
+	getTodoCount,
 };
 
 export default TodoManager;
