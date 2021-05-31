@@ -6,7 +6,7 @@ import TodoManager from '../services/TodoManager.js';
 const ToggleAllButton = () => {
 	const { todos } = context.state;
 	const isChecked = TodoManager.getActiveCount(todos) === 0;
-	const noTodos = TodoManager.getAllCount(todos) === 0;
+	const noTodos = TodoManager.hasNoTodos(todos);
 
 	return noTodos
 		? null

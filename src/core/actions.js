@@ -3,6 +3,7 @@ const updateInputValue = (dummy, input) => ({
 	input,
 });
 const addTodo = ({ state }) => ({
+	input: '',
 	todos: TodoManager.addTodo(state.todos, state.input),
 });
 const toggleTodo = ({ state }, todo) => ({
