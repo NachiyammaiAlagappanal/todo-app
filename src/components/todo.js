@@ -18,9 +18,6 @@ const activeStyle = {
 // eslint-disable-next-line max-lines-per-function
 const Todo = (todo) => {
 	const { id, text, completed } = todo;
-	// eslint-disable-next-line padding-line-between-statements
-	console.log(todo);
-
 	const style = completed ? completedStyle : activeStyle;
 
 	return (
@@ -33,7 +30,10 @@ const Todo = (todo) => {
 					onChange={ () => { context.actions.toggleTodo(todo); } }
 				/>
 			</span>
-			<span>{ text }</span>
+			<span
+				onClick={ () => context.actions.setEditing(todo) }
+			>
+				 { text }</span>
 			<span>
 				<button onClick={ () => context.actions.removeTodo(todo) }> X
 				</button>

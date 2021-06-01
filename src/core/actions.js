@@ -23,6 +23,18 @@ const clearCompleted = ({ state }) => ({
 const setFilter = (context, filter) => ({
 	filter,
 });
+const setEditing = (context, todo) => ({
+	editing: todo,
+	input: todo.text,
+});
+const editTodo = ({ state }) => ({
+	input: '',
+	editing: null,
+	todos: TodoManager.editTodo(
+		state.todos, state.editing, state.input
+	),
+});
+
 const actions = {
 	updateInputValue,
 	addTodo,
@@ -31,6 +43,8 @@ const actions = {
 	toggleTodos,
 	clearCompleted,
 	setFilter,
+	editTodo,
+	setEditing,
 };
 
 export default actions;

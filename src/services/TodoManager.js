@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import { rndString } from '@laufire/utils/random';
 import config from '../core/config';
 
@@ -45,7 +46,18 @@ const getTodoCount = (todos) => todos.length;
 
 const filterTodo = (todos, filter) => todos.filter(filters[filter]);
 
-const hasNoTodos = (todos) => getClearCount(todos) === 0;
+const hasNoTodos = (todos) => getTodoCount(todos) === 0;
+
+const editTodo = (
+	todos, editing, text
+) =>
+	 todos.map((todo) => (todo.id !== editing?.id
+		? todo
+		: {
+			...todo,
+			text,
+	  }
+	));
 
 const TodoManager = {
 	addTodo,
@@ -59,6 +71,7 @@ const TodoManager = {
 	filterTodo,
 	getTodoCount,
 	hasNoTodos,
+	editTodo,
 };
 
 export default TodoManager;
