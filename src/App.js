@@ -1,27 +1,16 @@
 import { React, useEffect } from 'react';
 import './App.css';
-import context from './core/context';
-import SampleService from './services/sample';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
-import ToggleAllButton from './components/toggleAllButton';
-import clearButton from './components/clearButton';
-import FilterBar from './components/filterBar.js';
-import actionButton from './components/actionButton';
+import TodoPane from './components/todopane.js';
+import TaskPane from './components/index.js';
+import TaskManager from './services/TaskManager.js';
 
 const App = () => {
-	useEffect(SampleService.sayHai, []);
-	// eslint-disable-next-line no-console
-	console.log(context.state);
+	useEffect(TaskManager.init, []);
 
 	return (
 		<div className="App">
-			<div>{ ToggleAllButton() }
-				  { TodoInput() }
-				{ actionButton() }</div>
-			<div>{ TodoList() }</div>
-			<div>{ clearButton() }</div>
-			<div>{ FilterBar() }</div>
+			{ TodoPane() }
+			{ TaskPane() }
 		</div>
 	);
 };
