@@ -13,13 +13,15 @@ const init = () =>
 		getTask('Task 2'),
 		getTask('Task 3'),
 	]);
-
+const addTask = (tasks, task) =>
+	(tasks === '' ? tasks : tasks.concat(getTask(task)));
 const removeTask = (tasks, task) =>
 	tasks.filter((data) => data.id !== task.id);
 
 const taskManager = () => ({
 	init,
 	removeTask,
+	addTask,
 });
 
 const TaskManager = taskManager();
